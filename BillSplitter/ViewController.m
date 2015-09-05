@@ -10,6 +10,11 @@
 
 @interface ViewController ()
 
+@property (strong, nonatomic) IBOutlet UITextField *billAmount;
+@property (strong, nonatomic) IBOutlet UISlider *numberOfPeople;
+@property (strong, nonatomic) IBOutlet UISlider *percentTip;
+@property (strong, nonatomic) IBOutlet UILabel *amountEach;
+
 @end
 
 @implementation ViewController
@@ -22,6 +27,14 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)typingBillAmount:(UITextField *)sender {
+    
+}
+
+- (IBAction)calculateSplit:(UISlider *)sender {
+    
 }
 
 @end

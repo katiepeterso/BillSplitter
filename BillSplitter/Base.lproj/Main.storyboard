@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,8 +16,89 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bill Amount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6wW-Ji-5Bs">
+                                <rect key="frame" x="16" y="20" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="typingBillAmount:" destination="vXZ-lx-hvc" eventType="editingDidBegin" id="bKk-yR-iCF"/>
+                                </connections>
+                            </textField>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="6" minValue="2" maxValue="8" translatesAutoresizingMaskIntoConstraints="NO" id="InX-FP-gFi">
+                                <rect key="frame" x="14" y="50" width="572" height="31"/>
+                                <connections>
+                                    <action selector="calculateSplit:" destination="vXZ-lx-hvc" eventType="valueChanged" id="EGY-sI-y9l"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 People" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgw-00-9Nf">
+                                <rect key="frame" x="266" y="81" width="68" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="CIA-iW-xl0">
+                                <rect key="frame" x="14" y="101.5" width="572" height="31"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" summaryElement="YES"/>
+                                </accessibility>
+                                <connections>
+                                    <action selector="calculateSplit:" destination="vXZ-lx-hvc" eventType="valueChanged" id="4bU-2H-8SB"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15% Tip" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeH-6n-y8Q">
+                                <rect key="frame" x="268" y="132.5" width="65" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bill Amount Per Person With Tip" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5c-OR-cNF">
+                                <rect key="frame" x="16" y="153" width="568" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=compact" misplaced="YES">
+                                    <rect key="frame" x="16" y="157" width="568" height="20.5"/>
+                                </variation>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="KeH-6n-y8Q" secondAttribute="centerX" id="6sx-sB-4St"/>
+                            <constraint firstItem="CIA-iW-xl0" firstAttribute="top" secondItem="fgw-00-9Nf" secondAttribute="bottom" id="DcN-Yn-tzO"/>
+                            <constraint firstItem="CIA-iW-xl0" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="KzZ-uX-AqE"/>
+                            <constraint firstItem="6wW-Ji-5Bs" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="PO1-wE-MIy"/>
+                            <constraint firstItem="6wW-Ji-5Bs" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="Qpm-Xj-Lp4"/>
+                            <constraint firstItem="InX-FP-gFi" firstAttribute="top" secondItem="6wW-Ji-5Bs" secondAttribute="bottom" id="RGO-1k-sP2"/>
+                            <constraint firstItem="D5c-OR-cNF" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Tij-Fo-bhe"/>
+                            <constraint firstItem="6wW-Ji-5Bs" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="UBZ-4u-zTg"/>
+                            <constraint firstItem="6wW-Ji-5Bs" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="Uxi-25-Jx3"/>
+                            <constraint firstItem="fgw-00-9Nf" firstAttribute="top" secondItem="InX-FP-gFi" secondAttribute="bottom" constant="1" id="WHG-o5-3Ov"/>
+                            <constraint firstItem="D5c-OR-cNF" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="cLb-Ol-ga1"/>
+                            <constraint firstItem="InX-FP-gFi" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="gbF-ea-YEf"/>
+                            <constraint firstAttribute="centerX" secondItem="fgw-00-9Nf" secondAttribute="centerX" id="jvh-rY-8Jq"/>
+                            <constraint firstItem="InX-FP-gFi" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="nH2-m0-b2t"/>
+                            <constraint firstItem="D5c-OR-cNF" firstAttribute="top" secondItem="KeH-6n-y8Q" secondAttribute="bottom" id="rK6-Y0-QOS"/>
+                            <constraint firstItem="KeH-6n-y8Q" firstAttribute="top" secondItem="CIA-iW-xl0" secondAttribute="bottom" constant="1" id="uqp-rI-egj"/>
+                            <constraint firstItem="CIA-iW-xl0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="w6h-L3-cr7"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Uxi-25-Jx3"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="Uxi-25-Jx3"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="amountEach" destination="D5c-OR-cNF" id="UN4-qN-SHe"/>
+                        <outlet property="billAmount" destination="6wW-Ji-5Bs" id="5Kn-lA-SQX"/>
+                        <outlet property="numberOfPeople" destination="InX-FP-gFi" id="fzn-VD-abU"/>
+                        <outlet property="percentTip" destination="CIA-iW-xl0" id="7QP-ZV-Y6L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
